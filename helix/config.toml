@@ -1,0 +1,41 @@
+theme = "catppuccin_mocha"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+w = "move_next_word_end"
+e = "move_next_word_start"
+W = "move_next_long_word_end"
+E = "move_next_long_word_start"
+
+[keys.normal.space]
+w = ":write"
+q = ":buffer-close"
+Q = ":quit"
+'/' = "toggle_comments"
+'?' = "global_search"
+'~' = "command_palette"
+
+[keys.select.space]
+'/' = "toggle_comments"
+
+[keys.insert]
+"C-c" = "normal_mode"
+"A-n" = "normal_mode"
+
+[editor]
+line-number = "relative"
+cursorline = true
+
+[editor.cursor-shape]
+insert = "bar"
+select = "block"
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-messages = true
+
+[editor.whitespace.render]
+tab = "all"
+
