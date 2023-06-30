@@ -1,4 +1,4 @@
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -28,6 +28,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle 
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle 
 
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # Brightness control using light
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
@@ -43,6 +49,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show run
+# bindsym $mod+d exec --no-startup-id dmenu_run 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -180,12 +187,13 @@ set $text-color          #E8E2CA
 set $inactive-text-color #5CBCD4
 set $urgent-bg-color     #E53935
 
+# Commenting this out to force i3 theme to system theme
 # window colors
 #                       border              background         text                 indicator
-client.focused          $inactive-bg-color  $inactive-bg-color $text-color          $inactive-text-color
-client.unfocused        $bg-color           $bg-color          $inactive-text-color $inactive-text-color
-client.focused_inactive $bg-color           $bg-color          $inactive-text-color $inactive-text-color
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $inactive-text-color
+# client.focused          $inactive-bg-color  $inactive-bg-color $text-color          $inactive-text-color
+# client.unfocused        $bg-color           $bg-color          $inactive-text-color $inactive-text-color
+# client.focused_inactive $bg-color           $bg-color          $inactive-text-color $inactive-text-color
+# client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $inactive-text-color
 
 # bar
 bar {
@@ -217,13 +225,21 @@ bindcode --release 110 exec --no-startup-id playerctl next
 
 bindsym --release $mod+Shift+s exec --no-startup-id shutter
 
+# Toggle touchpad
+bindsym --release $mod+Esc exec --no-startup-id xinput disable 13
+bindsym --release $mode+t exec --no-startup-id xinput enable 13 
+
 # Startup
 
 exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/retro-haiku.jpg 
 exec --no-startup-id compton
 exec --no-startup-id lxrandr
-exec --no-startup-id xinput set-prop 13 319 1
+exec --no-startup-id discord
+exec --no-startup-id xinput set-prop 13 310 1
+exec --no-startup-id xinput set-prop 12 310 1
+exec --no-startup-id xinput set-prop 11 310 1
 exec --no-startup-id ~/.scripts/battery.sh 80
+exec --no-startup-id setxkbmap -option caps:swapescape
 
 # Gaps
 default_border pixel 1
@@ -240,5 +256,7 @@ workspace $ws2 gaps outer 0
 workspace $ws3 gaps inner 10
 workspace $ws3 gaps outer 0
 
-workspace $ws6 gaps inner 10
-workspace $ws6 gaps outer 0
+workspace $ws6 gaps inner 50 
+workspace $ws6 gaps outer 50
+
+# xrandr --output DP-1-0 --mode 1920x1080 --right-of HDMI-A-0 
