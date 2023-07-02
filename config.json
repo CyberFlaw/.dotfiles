@@ -1,35 +1,36 @@
 {
-  "editor": {
-    "helix": "default",  
-    "nvim": "default",
-  },
+	"editor": {
+		"helix": "default",
+		"nvim": "default"
+	},
 
-  "environment": {
-    "i3": {
-      "path": "default",
-      "packages": ["rofi", "i3blocks", "i3lock", "playerctl", "shutter", "feh", "compton", "i3-gaps"],
-      "packages-path": {
-        "i3blocks": "/usr/share/i3blocks/"
-      }
-    },
-  },
+	"environment": {
+		"i3": {
+			"path": "default",
+			"packages": ["rofi", "i3blocks", "i3lock", "playerctl", "shutter", "feh", "compton", "i3-gaps"],
+			"packages-path": {
+				"i3blocks": "/usr/share/i3blocks/"
+			}
+		}
+	},
 
-  "terminal": {
-    "bash": "~/",
-    "zsh": "~/",
-    "lf": "default",
-    "tmux": "default"
-  },
+	"terminal": {
+		"bash": "~/",
+		"zsh": "~/",
+		"lf": "default",
+		"tmux": "default"
+	},
 
-  "ssh": "~/.ssh/",
-  "backup-codes": "~/.backup-codes",
-  "scripts": "~/.scripts/",
-  "fonts": "~/.fonts/",
-  "themes": "~/.themes/",
+	"ssh": "~/.ssh/",
+	"backup-codes": "~/.backup-codes",
+	"scripts": "~/.scripts/",
 
-  "packages": ["brave", "nvim", "neofetch"],
+	"fonts": "~/.fonts/",
+	"themes": "~/.themes/",
 
-  "languages": {
-    "rust": "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh",
-  }
+	"packages": ["brave", "nvim", "neofetch"],
+
+	"languages": {
+		"rust": "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+	}
 }
