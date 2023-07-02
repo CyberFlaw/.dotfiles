@@ -44,7 +44,6 @@ if c_editor == "y" or c_editor == "Y":
     editor = l_editor[v_editor]
     print(editor)
     
-    # perform linking
     if data[key_editor][l_editor[v_editor]] == "default":
         print("Linking", l_editor[v_editor], "to default path...")
         editor_linking = default_operation + "./editor/" + editor + " -t " + default_path
@@ -54,9 +53,9 @@ if c_editor == "y" or c_editor == "Y":
             print("Linking failed! Please fix this manually...")
     else:
         print("Linking", l_editor[v_editor], "to", data[key_editor][l_editor[v_editor]] ,"...")
-        editor_linking = default_operation + "./editor/nvim/" + " " + data[key_editor][l_editor[v_editor]] 
+        editor_linking = default_operation + "./editor/" + editor + " -t " + data[key_editor][l_editor[v_editor]] 
         print(editor_linking)
-        # os.system(editor_linking)
+        os.system(editor_linking)
 else:
     print("Editor config skipped")
 
